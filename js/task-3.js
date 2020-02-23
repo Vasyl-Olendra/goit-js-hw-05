@@ -13,10 +13,12 @@ class Storage {
   }
 
   removeItem(item) {
+    if (this.items.indexOf(item) >= 0) {
     const index = this.items.indexOf(item);
     this.items.splice(index, 1);
     console.table(this.items);
   }
+}
 }
 
 const storage = new Storage([
@@ -31,13 +33,6 @@ storage.getItems();
 storage.addItem('Дроид');
 
 storage.removeItem('Пролонгер');
-
-
-
-
-
-
-
 
 // Напиши класс Storage, который будет создавать объекты для управления складом товаров. При вызове будет получать один аргумент - начальный массив товаров, и записывать его в свойство items.
 

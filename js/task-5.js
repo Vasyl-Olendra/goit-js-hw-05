@@ -33,24 +33,23 @@ class Car {
   }
 
   accelerate(value) {
-    if (this.speed < this.maxSpeed) {
+    if (this.speed + value <= this.maxSpeed) {
       this.speed += value;
       return console.log(
         `Current speed of the vehicle after acceleration is: ${this.speed}`,
       );
-    } else if (this.speed >= this.maxSpeed) {
+    } else {
       return console.log(`Now vehicle is on its max speed: ${this.maxSpeed}`);
     }
   }
 
   decelerate(value) {
-    if (this.speed !== 0) {
+    if (this.speed - value >= 0) {
       this.speed -= value;
       return console.log(
         `Current speed of the vehicle after deceleration is: ${this.speed}`,
       );
-    } else if (this.speed < value) {
-      this.speed = 0;
+    } else {
       return console.log(
         `Current speed of the vehicle after deceleration is: ${this.speed}`,
       );
@@ -58,7 +57,7 @@ class Car {
   }
 
   drive(hours) {
-    if ((this.isOn = true)) {
+    if (this.isOn) {
       this.distance = hours * this.speed;
       return console.log(`Distance which vehicle is passed after ${hours} hour(s) of the trip is: ${this.distance}`);
     }
